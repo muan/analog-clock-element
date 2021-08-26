@@ -1,6 +1,6 @@
 {
   "name": "analog-clock-element",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A <analog-clock> element with stopwatch features.",
   "main": "analog-clock-element.js",
   "module": "analog-clock-element.js",
