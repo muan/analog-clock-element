@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Analog Clock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="analog-clock-element.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+  <style>
+    analog-clock { margin: auto }
+    analog-clock[size="17"] {
+      border-radius: 50%;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body class="sans-serif tc pv4">
+  <h1 class="f5 mb4"><code>&lt;analog-clock&gt;</code></h1>
+  <div class="flex mw8 center flex-wrap">
+    <div class="w-100 pa3">
+      <textarea class="tc db mb4 w-100 pa2 code bn bg-near-white f7 h2" readonly><analog-clock class="js-stopwatch"></analog-clock></textarea>
+      <analog-clock class="js-stopwatch"></analog-clock>
+      <button class="reset mt3 bn f7 pointer ttu ph3 pv2 br2 js-switch-mode">clock/stopwatch</button><br>
+      <div class="mt3 f6 js-stopwatch-controls" hidden>
+        stopwatch controls:<br>
+        <button class="reset mt3 bn f7 pointer ttu ph3 pv2 br2 mh2 js-play-pause">play/pause</button>
+        <button class="reset mt3 bn f7 pointer ttu ph3 pv2 br2 mh2 js-get-time">time elapsed?</button>
+        <button class="reset mt3 bn f7 pointer ttu ph3 pv2 br2 mh2 js-reset">reset</button>
+      </div>
+    </div>
+    <div class="w-100 w-50-ns pa3">
+      <textarea class="db mb4 w-100 pa2 code bn bg-near-white f7 h2" readonly><analog-clock size="200" ticks="false" marks="4"></analog-clock></textarea>
+      <analog-clock size="200" ticks="false" marks="4"></analog-clock>
+    </div>
+    <div class="w-100 w-50-ns pa3">
+      <textarea class="db mb4 w-100 pa2 code bn bg-near-white f7 h3" readonly><analog-clock size="17" ticks="false" marks="0"></analog-clock>
+<style>
+  [size="17"]::part(clock)::before { display: none; }
+  [size="17"]::part(hand-sec) { display: none; }
+  [size="17"]::part(hand-min) { margin-left: 1px; background-color: black; }
+</style></textarea>
+      <div class="pv5">
+        <style>
+          [size="17"]::part(hand-sec) { display: none; }
+          [size="17"]::part(hand-min) { margin-left: 1px; background-color: black; }
+          [size="17"]::part(hand-hour) { height: 40%; margin-top: 10%; min-height: auto; }
+          [size="17"]::part(clock)::before { display: none; }
+        </style>
+        <analog-clock size="17" ticks="false" marks="0"></analog-clock>
+        <div class="mt3 f7">(analog clock in the macOS menu bar)</div>
+      </div>
+    </div>
+    <div class="w-100 w-50-ns pa3">
+      <textarea class="db mb4 w-100 pa2 code bn bg-near-white f7 h4" readonly><style>
+  .part-demo::part(tick) { color: #eee }
+  .part-demo::part(tick12), 
+  .part-demo::part(tick9), 
+  .part-demo::part(tick6), 
+  .part-demo::part(tick3) { 
+    color: #111
+  }
+</style>
+
+<analog-clock class="part-demo" marks="0"></analog-clock>
+</textarea>
+      <style>
+        .part-demo::part(tick) { color: #eee }
+        .part-demo::part(tick12), 
+        .part-demo::part(tick9), 
+        .part-demo::part(tick6), 
+        .part-demo::part(tick3) { 
+          color: #111
+      }
+      </style><analog-clock class="part-demo" marks="0"></analog-clock>
+    </div>
+    <div class="w-100 w-50-ns pa3">
+      <textarea class="db mb4 w-100 pa2 code bn bg-near-white f7 h4" readonly><style>
+  .part-demo-2::part(hand-sec) { display: none; }
+  .part-demo-2::part(hand-hour) { border: 1px solid; }
+</style>
+
+<analog-clock class="part-demo-2"></analog-clock>
+</textarea>
+      <style>
+        .part-demo-2::part(hand-sec) { display: none; }
+        .part-demo-2::part(hand-hour) { width: 4px; border-radius: 2px; margin-left: -2px; }
+      </style><analog-clock class="part-demo-2"></analog-clock>
+    </div>
+  </div>
+  </div>
+  <script defer>
+    const stopwatch = document.querySelector('.js-stopwatch')
+    document.querySelector('.js-play-pause').addEventListener('click', function() {
+      stopwatch.toggleStopwatch()
+    })
+    document.querySelector('.js-get-time').addEventListener('click', function() {
+      alert(`${stopwatch.getTimeElapsed()}ms.`)
+    })
+    document.querySelector('.js-reset').addEventListener('click', function() {
+      stopwatch.resetStopwatch()
+    })
+    document.querySelector('.js-switch-mode').addEventListener('click', function() {
+      stopwatch.mode = stopwatch.mode === 'clock' ? 'stopwatch' : 'clock'
+      document.querySelector('.js-stopwatch-controls').hidden = stopwatch.mode === 'clock'
+    })
+  </script>
+</body>
+
+</html>
