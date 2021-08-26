@@ -251,33 +251,33 @@ class AnalogClockElement extends HTMLElement {
       :host(.stopwatch-mode.is-resetting.is-paused) .hand-sec { animation: reset-sec-${rand} 300ms ease-out 0s 1; }
       :host(.stopwatch-mode.is-resetting.is-paused) .hand-min { animation: reset-min-${rand} 300ms ease-out 0s 1; }
       :host(.stopwatch-mode.is-resetting.is-paused) .hand-hour { animation: reset-hour-${rand} 300ms ease-out 0s 1; }
-      :host(.stopwatch-mode) .hand-sec { transform: rotate(${sDeg}deg); }
-      :host(.stopwatch-mode) .hand-min { transform: rotate(${mDeg}deg); }
-      :host(.stopwatch-mode) .hand-hour { transform: rotate(${hDeg}deg); }
+      :host(.stopwatch-mode) .hand-sec { transform: translate(-50%, 0) rotate(${sDeg}deg); }
+      :host(.stopwatch-mode) .hand-min { transform: translate(-50%, 0) rotate(${mDeg}deg); }
+      :host(.stopwatch-mode) .hand-hour { transform: translate(-50%, 0) rotate(${hDeg}deg); }
 
       @keyframes reset-sec-${rand} {
-        0% { transform: ${currentPosForSec} }
-        100% { transform: rotate(${sDeg}deg); }
+        0% { transform: translate(-50%, 0) ${currentPosForSec} }
+        100% { transform: translate(-50%, 0) rotate(${sDeg}deg); }
       }
       @keyframes reset-min-${rand} {
-        0% { transform: ${currentPosForMin} }
-        100% { transform: rotate(${mDeg}deg); }
+        0% { transform: translate(-50%, 0) ${currentPosForMin} }
+        100% { transform: translate(-50%, 0) rotate(${mDeg}deg); }
       }
       @keyframes reset-hour-${rand} {
-        0% { transform: ${currentPosForHour} }
-        100% { transform: rotate(${hDeg}deg); }
+        0% { transform: translate(-50%, 0) ${currentPosForHour} }
+        100% { transform: translate(-50%, 0) rotate(${hDeg}deg); }
       }
       @keyframes countup-sec-${rand} {
-        0% { transform: rotate(${sDeg}deg); }
-        100% { transform: rotate(${sDeg + 360}deg); }
+        0% { transform: translate(-50%, 0) rotate(${sDeg}deg); }
+        100% { transform: translate(-50%, 0) rotate(${sDeg + 360}deg); }
       }
       @keyframes countup-min-${rand} {
-        0% { transform: rotate(${mDeg}deg); }
-        100% { transform: rotate(${mDeg + 360}deg); }
+        0% { transform: translate(-50%, 0) rotate(${mDeg}deg); }
+        100% { transform: translate(-50%, 0) rotate(${mDeg + 360}deg); }
       }
       @keyframes countup-hour-${rand} {
-        0% { transform: rotate(${hDeg}deg); }
-        100% { transform: rotate(${hDeg + 360}deg); }
+        0% { transform: translate(-50%, 0) rotate(${hDeg}deg); }
+        100% { transform: translate(-50%, 0) rotate(${hDeg + 360}deg); }
       }
     `
 

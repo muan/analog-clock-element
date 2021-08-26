@@ -37,16 +37,17 @@
     <div class="w-100 w-50-ns pa3">
       <textarea class="db mb4 w-100 pa2 code bn bg-near-white f7 h3" readonly><analog-clock size="17" ticks="false" marks="0"></analog-clock>
 <style>
-  [size="17"]::part(clock)::before { display: none; }
+  [size="17"]::part(clock)::before,
   [size="17"]::part(hand-sec) { display: none; }
   [size="17"]::part(hand-min) { margin-left: 1px; background-color: black; }
+  [size="17"]::part(hand-hour) { height: 40%; margin-top: 10%; min-height: auto; }
 </style></textarea>
       <div class="pv5">
         <style>
+          [size="17"]::part(clock)::before,
           [size="17"]::part(hand-sec) { display: none; }
           [size="17"]::part(hand-min) { margin-left: 1px; background-color: black; }
           [size="17"]::part(hand-hour) { height: 40%; margin-top: 10%; min-height: auto; }
-          [size="17"]::part(clock)::before { display: none; }
         </style>
         <analog-clock size="17" ticks="false" marks="0"></analog-clock>
         <div class="mt3 f7">(analog clock in the macOS menu bar)</div>
@@ -85,7 +86,7 @@
 </textarea>
       <style>
         .part-demo-2::part(hand-sec) { display: none; }
-        .part-demo-2::part(hand-hour) { width: 4px; border-radius: 2px; margin-left: -2px; }
+        .part-demo-2::part(hand-hour) { width: 4px; border-radius: 2px; }
       </style><analog-clock class="part-demo-2"></analog-clock>
     </div>
   </div>
